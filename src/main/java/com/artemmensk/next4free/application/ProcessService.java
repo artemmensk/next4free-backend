@@ -67,4 +67,9 @@ public class ProcessService {
                 processPolicy,
                 createdOn);
     }
+
+    public Process getCurrentProcess(BusinessId businessId, ClientId clientId) {
+        return processRepository.findByBusinessIdAndClientIdAndCompletedIsNull(businessId, clientId)
+                .orElseThrow(() -> new ProcessNotFound(clientId, businessId));
+    }
 }

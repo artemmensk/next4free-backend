@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
-public class Config {
+public class ApplicationConfig {
 
     private final ProcessRepository processRepository;
     private final Supplier<ProcessId> processIdSupplier;
@@ -24,7 +24,7 @@ public class Config {
     private final Supplier<StampId> stampIdSupplier;
 
     @Bean
-    ProcessService processService() {
+    public ProcessService processService() {
         return new ProcessService(
                 processRepository,
                 processPolicyService(),
@@ -35,7 +35,7 @@ public class Config {
     }
 
     @Bean
-    ProcessPolicyService processPolicyService() {
+    public ProcessPolicyService processPolicyService() {
         return new ProcessPolicyService();
     }
 }
