@@ -7,6 +7,7 @@ import java.util.function.Supplier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.artemmensk.next4free.domain.AccountId;
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
 import com.artemmensk.next4free.domain.ProcessId;
@@ -38,5 +39,10 @@ public class SupplierConfig {
     @Bean
     Supplier<BusinessId> businessIdSupplier() {
         return () -> new BusinessId(UUID.randomUUID().toString());
+    }
+
+    @Bean
+    Supplier<AccountId> accountIdSupplier() {
+        return () -> AccountId.from(UUID.randomUUID().toString());
     }
 }

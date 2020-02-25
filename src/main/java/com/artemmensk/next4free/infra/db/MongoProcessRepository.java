@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.infra;
+package com.artemmensk.next4free.infra.db;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
