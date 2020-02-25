@@ -3,7 +3,7 @@ package com.artemmensk.next4free;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.artemmensk.next4free.domain.ProcessId;
+import com.artemmensk.next4free.domain.CollectingProcessId;
 import com.artemmensk.next4free.domain.StampId;
 
 import lombok.Getter;
@@ -18,8 +18,8 @@ public class TestApplicationConfig {
     public static TestApplicationConfig instance() {
 
         final ApplicationConfig applicationConfig = new ApplicationConfig(
-                TestProcessRepository.INSTANCE,
-                () -> ProcessId.from(UUID.randomUUID().toString()),
+                TestCollectingProcessRepository.INSTANCE,
+                () -> CollectingProcessId.from(UUID.randomUUID().toString()),
                 LocalDateTime::now,
                 () -> StampId.from(UUID.randomUUID().toString()));
 

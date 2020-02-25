@@ -13,31 +13,31 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Process {
+public class CollectingProcess {
 
     @Id
-    private ProcessId processId;
+    private CollectingProcessId collectingProcessId;
     private ClientId clientId;
     private BusinessId businessId;
-    private ProcessPolicy processPolicy;
+    private CollectingProcessPolicy collectingProcessPolicy;
     private Set<Stamp> stamps;
     private LocalDateTime created;
     private LocalDateTime completed;
 
-    public static Process create(
-            ProcessId processId,
+    public static CollectingProcess create(
+            CollectingProcessId collectingProcessId,
             ClientId clientId,
             BusinessId businessId,
-            ProcessPolicy processPolicy,
+            CollectingProcessPolicy collectingProcessPolicy,
             LocalDateTime createdOn) {
-        final Process process = new Process();
-        process.processId = processId;
-        process.clientId = clientId;
-        process.businessId = businessId;
-        process.processPolicy = processPolicy;
-        process.created = createdOn;
-        process.stamps = new HashSet<>();
-        return process;
+        final CollectingProcess collectingProcess = new CollectingProcess();
+        collectingProcess.collectingProcessId = collectingProcessId;
+        collectingProcess.clientId = clientId;
+        collectingProcess.businessId = businessId;
+        collectingProcess.collectingProcessPolicy = collectingProcessPolicy;
+        collectingProcess.created = createdOn;
+        collectingProcess.stamps = new HashSet<>();
+        return collectingProcess;
     }
 
     public void stamp(Stamp stamp) {
@@ -51,7 +51,7 @@ public class Process {
     }
 
     private void assertProcessPolicy() {
-        processPolicy.assertSatisfied(this);
+        collectingProcessPolicy.assertSatisfied(this);
     }
 
 }

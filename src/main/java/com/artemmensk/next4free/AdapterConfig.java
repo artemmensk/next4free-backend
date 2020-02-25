@@ -3,15 +3,15 @@ package com.artemmensk.next4free;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.artemmensk.next4free.adapter.rest.ProcessMapper;
-import com.artemmensk.next4free.adapter.rest.StampMapper;
+import com.artemmensk.next4free.adapter.rest.collectingprocess.CollectingProcessMapper;
+import com.artemmensk.next4free.adapter.rest.collectingprocess.StampMapper;
 
 @Configuration
 public class AdapterConfig {
 
     @Bean
-    public ProcessMapper processMapper() {
-        return new ProcessMapper(stampMapper());
+    public CollectingProcessMapper collectingProcessMapper() {
+        return new CollectingProcessMapper(stampMapper());
     }
 
     @Bean

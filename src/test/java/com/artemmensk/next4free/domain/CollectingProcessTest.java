@@ -13,42 +13,46 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class ProcessTest {
+class CollectingProcessTest {
     private static final LocalDateTime CREATED_ON = LocalDateTime.of(2019, 11, 1, 12, 30);
     private static final LocalDateTime COMPLETED_ON = LocalDateTime.of(2019, 12, 1, 12, 30);
 
-    private static final ProcessId PROCESS_ID = ProcessId.from(UUID.randomUUID().toString());
+    private static final CollectingProcessId COLLECTING_PROCESS_ID = CollectingProcessId
+            .from(UUID.randomUUID().toString());
     private static final ClientId CLIENT_ID = ClientId.from(UUID.randomUUID().toString());
     private static final BusinessId BUSINESS_ID = BusinessId.from(UUID.randomUUID().toString());
 
     @Mock
-    private ProcessPolicy processPolicy;
+    private CollectingProcessPolicy collectingProcessPolicy;
 
     @Test
     void should_complete_process() {
         // Given
-        final Process process = Process.create(PROCESS_ID, CLIENT_ID, BUSINESS_ID, processPolicy, CREATED_ON);
-        process.stamp(stampFixture());
+        final CollectingProcess collectingProcess = CollectingProcess
+                .create(COLLECTING_PROCESS_ID, CLIENT_ID, BUSINESS_ID, collectingProcessPolicy, CREATED_ON);
+        collectingProcess.stamp(stampFixture());
 
         // When
-        process.complete(COMPLETED_ON);
+        collectingProcess.complete(COMPLETED_ON);
 
         // Then
-        assertThat(process.getCompleted()).isEqualTo(COMPLETED_ON);
+        assertThat(collectingProcess.getCompleted()).isEqualTo(COMPLETED_ON);
     }
 
     @Test
     void should_not_complete_process_when_policy_violated() {
         // Given
-        final Process process = Process.create(PROCESS_ID, CLIENT_ID, BUSINESS_ID, processPolicy, CREATED_ON);
-        doThrow(new RuntimeException("not enough stamps")).when(processPolicy).assertSatisfied(process);
-        process.stamp(stampFixture());
+        final CollectingProcess collectingProcess = CollectingProcess
+                .create(COLLECTING_PROCESS_ID, CLIENT_ID, BUSINESS_ID, collectingProcessPolicy, CREATED_ON);
+        doThrow(new RuntimeException("not enough stamps")).when(collectingProcessPolicy)
+                .assertSatisfied(collectingProcess);
+        collectingProcess.stamp(stampFixture());
 
         // When
-        final Throwable throwable = catchThrowable(() -> process.complete(COMPLETED_ON));
+        final Throwable throwable = catchThrowable(() -> collectingProcess.complete(COMPLETED_ON));
 
         // Then
-        assertThat(process.getCompleted()).isNull();
+        assertThat(collectingProcess.getCompleted()).isNull();
         assertThat(throwable).hasMessage("not enough stamps");
     }
 

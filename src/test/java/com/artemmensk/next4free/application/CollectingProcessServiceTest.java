@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 import com.artemmensk.next4free.TestApplicationConfig;
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.Process;
+import com.artemmensk.next4free.domain.CollectingProcess;
 
-class ProcessServiceTest {
+class CollectingProcessServiceTest {
 
-    private final ProcessService processService = TestApplicationConfig
+    private final CollectingProcessService collectingProcessService = TestApplicationConfig
             .instance().getApplicationConfig().processService();
 
     @Test
@@ -23,11 +23,11 @@ class ProcessServiceTest {
         final BusinessId businessId = BusinessId.from(UUID.randomUUID().toString());
 
         // When
-        processService.stamp(businessId, clientId);
-        final Process process = processService.getCurrentProcess(businessId, clientId);
+        collectingProcessService.stamp(businessId, clientId);
+        final CollectingProcess collectingProcess = collectingProcessService.getCurrentProcess(businessId, clientId);
 
         // Then
-        assertThat(process);
+        assertThat(collectingProcess);
     }
 
 }

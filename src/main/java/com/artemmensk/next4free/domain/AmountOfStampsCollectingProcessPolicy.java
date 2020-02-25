@@ -3,12 +3,12 @@ package com.artemmensk.next4free.domain;
 import lombok.Value;
 
 @Value
-public class AmountOfStampsProcessPolicy implements ProcessPolicy {
+public class AmountOfStampsCollectingProcessPolicy implements CollectingProcessPolicy {
 
     int targetAmount;
 
-    public void assertSatisfied(Process process) {
-        final int currentAmount = process.getStamps().size();
+    public void assertSatisfied(CollectingProcess collectingProcess) {
+        final int currentAmount = collectingProcess.getStamps().size();
 
         if (enoughStamps(currentAmount)) {
             return;

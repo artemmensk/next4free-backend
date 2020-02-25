@@ -6,10 +6,10 @@ import java.util.function.Supplier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.artemmensk.next4free.application.ProcessPolicyService;
-import com.artemmensk.next4free.application.ProcessService;
-import com.artemmensk.next4free.domain.ProcessId;
-import com.artemmensk.next4free.domain.ProcessRepository;
+import com.artemmensk.next4free.application.CollectingProcessPolicyService;
+import com.artemmensk.next4free.application.CollectingProcessService;
+import com.artemmensk.next4free.domain.CollectingProcessId;
+import com.artemmensk.next4free.domain.CollectingProcessRepository;
 import com.artemmensk.next4free.domain.StampId;
 
 import lombok.RequiredArgsConstructor;
@@ -18,24 +18,24 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private final ProcessRepository processRepository;
-    private final Supplier<ProcessId> processIdSupplier;
+    private final CollectingProcessRepository collectingProcessRepository;
+    private final Supplier<CollectingProcessId> collectingProcessIdSupplier;
     private final Supplier<LocalDateTime> localDateTimeSupplier;
     private final Supplier<StampId> stampIdSupplier;
 
     @Bean
-    public ProcessService processService() {
-        return new ProcessService(
-                processRepository,
-                processPolicyService(),
-                processIdSupplier,
+    public CollectingProcessService collectingProcessService() {
+        return new CollectingProcessService(
+                collectingProcessRepository,
+                collectingProcessPolicyService(),
+                collectingProcessIdSupplier,
                 localDateTimeSupplier,
                 stampIdSupplier
         );
     }
 
     @Bean
-    public ProcessPolicyService processPolicyService() {
-        return new ProcessPolicyService();
+    public CollectingProcessPolicyService collectingProcessPolicyService() {
+        return new CollectingProcessPolicyService();
     }
 }

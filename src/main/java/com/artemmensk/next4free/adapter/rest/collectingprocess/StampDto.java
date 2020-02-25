@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.adapter.rest;
+package com.artemmensk.next4free.adapter.rest.collectingprocess;
 
 import java.time.LocalDateTime;
 
