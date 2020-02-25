@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.artemmensk.next4free.application.CollectingProcessService;
+import com.artemmensk.next4free.application.collectingprocess.CollectingProcessService;
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.CollectingProcess;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
 
 import lombok.RequiredArgsConstructor;
 

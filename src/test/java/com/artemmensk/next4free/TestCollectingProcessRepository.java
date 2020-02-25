@@ -6,9 +6,9 @@ import java.util.Optional;
 
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.CollectingProcess;
-import com.artemmensk.next4free.domain.CollectingProcessId;
-import com.artemmensk.next4free.domain.CollectingProcessRepository;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessRepository;
 
 public enum TestCollectingProcessRepository implements CollectingProcessRepository {
     INSTANCE;

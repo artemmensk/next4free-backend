@@ -2,7 +2,7 @@ package com.artemmensk.next4free.adapter.rest.collectingprocess;
 
 import java.util.stream.Collectors;
 
-import com.artemmensk.next4free.domain.CollectingProcess;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
 
 import lombok.RequiredArgsConstructor;
 

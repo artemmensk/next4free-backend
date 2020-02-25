@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.domain;
+package com.artemmensk.next4free.domain.collectingprocess;
 
 import lombok.Value;
 

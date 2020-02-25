@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.application;
+package com.artemmensk.next4free.application.collectingprocess;
 
 import com.artemmensk.next4free.domain.AmountOfStampsCollectingProcessPolicy;
 import com.artemmensk.next4free.domain.BusinessId;

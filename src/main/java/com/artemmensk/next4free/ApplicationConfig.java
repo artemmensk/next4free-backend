@@ -6,10 +6,10 @@ import java.util.function.Supplier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.artemmensk.next4free.application.CollectingProcessPolicyService;
-import com.artemmensk.next4free.application.CollectingProcessService;
-import com.artemmensk.next4free.domain.CollectingProcessId;
-import com.artemmensk.next4free.domain.CollectingProcessRepository;
+import com.artemmensk.next4free.application.collectingprocess.CollectingProcessPolicyService;
+import com.artemmensk.next4free.application.collectingprocess.CollectingProcessService;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessRepository;
 import com.artemmensk.next4free.domain.StampId;
 
 import lombok.RequiredArgsConstructor;

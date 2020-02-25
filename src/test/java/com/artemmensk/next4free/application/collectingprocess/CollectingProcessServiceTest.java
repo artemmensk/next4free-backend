@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.application;
+package com.artemmensk.next4free.application.collectingprocess;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,14 +7,15 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 
 import com.artemmensk.next4free.TestApplicationConfig;
+import com.artemmensk.next4free.application.collectingprocess.CollectingProcessService;
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.CollectingProcess;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
 
 class CollectingProcessServiceTest {
 
     private final CollectingProcessService collectingProcessService = TestApplicationConfig
-            .instance().getApplicationConfig().processService();
+            .instance().getApplicationConfig().collectingProcessService();
 
     @Test
     void should_create_process_and_stamp_and_return_process() {

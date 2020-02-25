@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.domain;
+package com.artemmensk.next4free.domain.collectingprocess;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -11,6 +11,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.artemmensk.next4free.domain.BusinessId;
+import com.artemmensk.next4free.domain.ClientId;
+import com.artemmensk.next4free.domain.CollectingProcessPolicy;
+import com.artemmensk.next4free.domain.Stamp;
+import com.artemmensk.next4free.domain.StampId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 
 @ExtendWith(MockitoExtension.class)
 class CollectingProcessTest {

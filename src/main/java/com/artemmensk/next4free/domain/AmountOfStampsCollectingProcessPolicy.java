@@ -1,5 +1,7 @@
 package com.artemmensk.next4free.domain;
 
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
+
 import lombok.Value;
 
 @Value

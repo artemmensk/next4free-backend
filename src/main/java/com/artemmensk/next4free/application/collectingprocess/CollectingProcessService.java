@@ -1,14 +1,14 @@
-package com.artemmensk.next4free.application;
+package com.artemmensk.next4free.application.collectingprocess;
 
 import java.time.LocalDateTime;
 import java.util.function.Supplier;
 
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.CollectingProcess;
-import com.artemmensk.next4free.domain.CollectingProcessId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcess;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 import com.artemmensk.next4free.domain.CollectingProcessPolicy;
-import com.artemmensk.next4free.domain.CollectingProcessRepository;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessRepository;
 import com.artemmensk.next4free.domain.Stamp;
 import com.artemmensk.next4free.domain.StampId;
 

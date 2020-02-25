@@ -1,4 +1,4 @@
-package com.artemmensk.next4free.domain;
+package com.artemmensk.next4free.domain.collectingprocess;
 
 
 import java.time.LocalDateTime;
@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
+
+import com.artemmensk.next4free.domain.BusinessId;
+import com.artemmensk.next4free.domain.ClientId;
+import com.artemmensk.next4free.domain.CollectingProcessPolicy;
+import com.artemmensk.next4free.domain.Stamp;
 
 import lombok.AccessLevel;
 import lombok.Getter;

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.artemmensk.next4free.domain.AccountId;
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.CollectingProcessId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 import com.artemmensk.next4free.domain.StampId;
 
 @Configuration

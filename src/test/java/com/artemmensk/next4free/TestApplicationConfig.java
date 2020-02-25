@@ -3,7 +3,7 @@ package com.artemmensk.next4free;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.artemmensk.next4free.domain.CollectingProcessId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 import com.artemmensk.next4free.domain.StampId;
 
 import lombok.Getter;
