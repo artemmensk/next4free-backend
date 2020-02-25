@@ -3,6 +3,7 @@ package com.artemmensk.next4free;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
@@ -28,5 +29,17 @@ public enum TestCollectingProcessRepository implements CollectingProcessReposito
                 .filter(p -> p.getBusinessId().equals(businessId))
                 .filter(p -> p.getClientId().equals(clientId))
                 .findAny();
+    }
+
+    @Override
+    public Stream<CollectingProcess> findAllByClientId(ClientId clientId) {
+        return collectingProcesses.values().stream()
+                .filter(p -> p.getClientId().equals(clientId));
+    }
+
+    @Override
+    public Stream<CollectingProcess> findAllByBusinessId(BusinessId businessId) {
+        return collectingProcesses.values().stream()
+                .filter(p -> p.getBusinessId().equals(businessId));
     }
 }
