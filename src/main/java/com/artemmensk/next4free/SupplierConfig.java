@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import com.artemmensk.next4free.domain.AccountId;
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
-import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 import com.artemmensk.next4free.domain.StampId;
+import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 
 @Configuration
 public class SupplierConfig {
@@ -33,12 +33,12 @@ public class SupplierConfig {
 
     @Bean
     Supplier<ClientId> clientIdSupplier() {
-        return () -> new ClientId(UUID.randomUUID().toString());
+        return () -> ClientId.from(UUID.randomUUID().toString());
     }
 
     @Bean
     Supplier<BusinessId> businessIdSupplier() {
-        return () -> new BusinessId(UUID.randomUUID().toString());
+        return () -> BusinessId.from(UUID.randomUUID().toString());
     }
 
     @Bean

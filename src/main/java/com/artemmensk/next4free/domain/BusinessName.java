@@ -6,11 +6,11 @@ import lombok.Data;
 
 @Embeddable
 @Data
-public class BusinessId {
+public class BusinessName {
     private String value;
 
-    public static BusinessId from(String raw) {
-        return new BusinessId() {{
+    public static BusinessName from(String raw) {
+        return new BusinessName() {{
             setValue(raw);
         }};
     }

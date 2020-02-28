@@ -1,12 +1,17 @@
 package com.artemmensk.next4free.domain;
 
-import lombok.Value;
+import javax.persistence.Embeddable;
 
-@Value
+import lombok.Data;
+
+@Embeddable
+@Data
 public class ClientId {
-    String value;
+    private String value;
 
     public static ClientId from(String raw) {
-        return new ClientId(raw);
+        return new ClientId() {{
+            setValue(raw);
+        }};
     }
 }
