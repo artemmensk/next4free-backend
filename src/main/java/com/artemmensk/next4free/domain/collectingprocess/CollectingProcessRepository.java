@@ -15,5 +15,7 @@ public interface CollectingProcessRepository {
 
     Stream<CollectingProcess> findAllByClientId(ClientId clientId);
 
+    Stream<CollectingProcess> findAllByClientIdAndCompletedIsNull(ClientId clientId);
+
     Stream<CollectingProcess> findAllByBusinessId(BusinessId businessId);
 }

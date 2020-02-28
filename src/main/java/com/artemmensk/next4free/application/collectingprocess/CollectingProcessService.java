@@ -1,7 +1,9 @@
 package com.artemmensk.next4free.application.collectingprocess;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import com.artemmensk.next4free.domain.BusinessId;
 import com.artemmensk.next4free.domain.ClientId;
@@ -76,5 +78,9 @@ public class CollectingProcessService {
             ClientId clientId) {
         return collectingProcessRepository.findByBusinessIdAndClientIdAndCompletedIsNull(businessId, clientId)
                 .orElseThrow(() -> new CollectingProcessNotFound(clientId, businessId));
+    }
+
+    public Stream<CollectingProcess> getCurrentProcessesForClient(ClientId clientId) {
+        return collectingProcessRepository.findAllByClientIdAndCompletedIsNull(clientId);
     }
 }

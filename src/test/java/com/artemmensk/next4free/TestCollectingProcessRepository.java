@@ -28,6 +28,7 @@ public enum TestCollectingProcessRepository implements CollectingProcessReposito
         return collectingProcesses.values().stream()
                 .filter(p -> p.getBusinessId().equals(businessId))
                 .filter(p -> p.getClientId().equals(clientId))
+                .filter(p -> p.getCompleted() == null)
                 .findAny();
     }
 
@@ -35,6 +36,13 @@ public enum TestCollectingProcessRepository implements CollectingProcessReposito
     public Stream<CollectingProcess> findAllByClientId(ClientId clientId) {
         return collectingProcesses.values().stream()
                 .filter(p -> p.getClientId().equals(clientId));
+    }
+
+    @Override
+    public Stream<CollectingProcess> findAllByClientIdAndCompletedIsNull(ClientId clientId) {
+        return collectingProcesses.values().stream()
+                .filter(p -> p.getClientId().equals(clientId))
+                .filter(p -> p.getCompleted() == null);
     }
 
     @Override
