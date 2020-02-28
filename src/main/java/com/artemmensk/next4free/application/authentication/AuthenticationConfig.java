@@ -1,5 +1,8 @@
 package com.artemmensk.next4free.application.authentication;
 
+import java.util.Date;
+import java.util.function.Supplier;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,6 +18,7 @@ public class AuthenticationConfig {
 
     private final AccountRepository accountRepository;
     private final HashingService hashingService;
+    private final Supplier<Date> dateSupplier;
 
     @Bean
     AuthenticationService authenticationService() {
@@ -26,6 +30,6 @@ public class AuthenticationConfig {
     }
 
     private TokenService tokenService() {
-        return new JwtTokenService();
+        return new JwtTokenService(dateSupplier);
     }
 }

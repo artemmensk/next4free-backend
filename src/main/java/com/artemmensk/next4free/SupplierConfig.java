@@ -1,6 +1,8 @@
 package com.artemmensk.next4free;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.UUID;
 import java.util.function.Supplier;
 
@@ -16,9 +18,16 @@ import com.artemmensk.next4free.domain.collectingprocess.CollectingProcessId;
 @Configuration
 public class SupplierConfig {
 
+    private final ZoneId zoneId = ZoneId.systemDefault();
+
     @Bean
     Supplier<LocalDateTime> localDateTimeSupplier() {
         return LocalDateTime::now;
+    }
+
+    @Bean
+    Supplier<Date> dateSupplier() {
+        return () -> Date.from(localDateTimeSupplier().get().atZone(zoneId).toInstant());
     }
 
     @Bean
